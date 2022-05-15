@@ -12,9 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<CabanaContext>(optionsAction: 
     opt=>opt.UseNpgsql("User ID =timvyrhkevxieb;Password=d5695b961299c5dc365e2e2f50e0ba67ad317f649163407a9163e19b01dfa703;Server=ec2-3-224-164-189.compute-1.amazonaws.com;Port=5432;Database=d12gvl6so6hahr;Integrated Security=true;Pooling=true;"));
 
-builder.Services.AddIdentity<Usuario, Role>()
-    .AddEntityFrameworkStores<CabanaContext>();                ;
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -12,8 +12,8 @@ namespace business.Model.Services
 {
     public class UsuarioService : IUsuarioService
     {
-        public UserManager<Usuario> _context { get; set; }
-        public UsuarioService(UserManager<Usuario> context){
+        public CabanaContext _context { get; set; }
+        public UsuarioService(CabanaContext context){
             _context = context;
 
         }
@@ -21,9 +21,11 @@ namespace business.Model.Services
         {
             Usuario user = new Usuario{
                 Email = model.Email,
-                UserName = model.Nome
+                Nome = model.Nome,
+                Senha = model.Password
             };
-            var result =  await _context.CreateAsync(user, model.Password);
+            var result =  await _context.Usuario.AddAsync(user);
+            await _context.SaveChangesAsync();
             return user;
         }
 

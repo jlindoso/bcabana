@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace business.Context
 {
-    public class CabanaContext : IdentityDbContext<Usuario, Role, int>
+    public class CabanaContext : DbContext
     {
        public CabanaContext(DbContextOptions<CabanaContext> options)
         : base(options)
@@ -20,6 +20,9 @@ namespace business.Context
         public DbSet<Caixa> Caixa { get; set; } = null!;
         public DbSet<Empresa> Empresa { get; set; } = null!;
         public DbSet<Comanda> Comanda { get; set; } = null!;
+        public DbSet<Usuario> Usuario { get; set; } = null!;
+        public DbSet<Perfil> Perfil { get; set; } = null!;
+        public DbSet<UsuarioPerfil> UsuarioPerfil { get; set; } = null!;
         public DbSet<ProdutoComanda> ProdutoComanda { get; set; } = null!;
         public DbSet<TipoPagamento> TipoPagamento { get; set; } = null!;
         public DbSet<ComandaPagamento> ComandaPagamento { get; set; } = null!;
